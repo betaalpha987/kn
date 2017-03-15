@@ -13,7 +13,6 @@
 <link href="bootstrap/css/united-bootstrap.min.css" rel="stylesheet">
 <script src="bootstrap/js/bootstrap.min.js"></script>
 
-
 <style>
 
 * {
@@ -49,13 +48,10 @@ body {
 .portf-entry:active {
   box-shadow: 0 12px 16px 0 rgba(255,0,255,0.24), 0 17px 50px 0 rgba(255,0,255,0.19);
   transition-duration: 0s;
-
 }
-
 </style>
 
 <body>
-
 
 <!--*Navbar*-->
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -93,34 +89,57 @@ body {
     <%
     let portfElems = [
       {
-        title: "Pizza Playground", size: 6, img: "https://placehold.it/400x200/f9f.png",
+        title: "Pizza Playground",
+        size: 6,
+        img: "https://placehold.it/400x200/f9f.png",
         desc: "Pick your favourite pizza toppings, vote for them and see which are everyone's faourites. Both Pizza Playground and this website are a complete server setup deployed via Heroku.",
-        techUsed: "HTML/CSS/JS, NodeJS, Express, EQS, MongoDB", goTo: "", source: ""
+        techUsed: "HTML/CSS/JS, NodeJS, Express, EQS, MongoDB",
+        goTo: "https://knport.herokuapp.com/pizza",
+        source: "https://github.com/betaalpha987/kn/" // Probably need different sources: for website, pizza ejs and pizzavote ejs
       },
       {
-        title: "Simon", size: 3, img: "https://placehold.it/400x200/f9f.png",
+        title: "Simon",
+        size: 3,
+        img: "https://placehold.it/400x200/f9f.png",
         desc: "Test your memory with this classic 80s game",
-        techUsed: "HTML/CSS/JS, Bootstrap", goTo: "", source: ""
+        techUsed: "HTML/CSS/JS, Bootstrap",
+        goTo: "https://betaalpha987.github.io/simon/simon.html",
+        source: "https://github.com/betaalpha987/simon/blob/master/simon.html"
       }, 
       {
-        title: "Tic Tac Toe", size: 3, img: "https://placehold.it/400x200/f9f.png",
+        title: "Tic Tac Toe",
+        size: 3,
+        img: "https://placehold.it/400x200/f9f.png",
         desc: "The only winning move is not to play. But have a go anyway!",
-        techUsed: "HTML/CSS/JS, Bootstrap", goTo: "", source: ""
+        techUsed: "HTML/CSS/JS, Bootstrap",
+        goTo: "",
+        source: "https://github.com/betaalpha987/tic"
       }, 
       {
-        title: "Glass Calculator", size: 3, img: "https://placehold.it/400x200/f9f.png",
+        title: "Glass Calculator",
+        size: 3,
+        img: "https://placehold.it/400x200/f9f.png",
         desc: "Works best on desktop PCs. Works with both keyboard and mouse.",
-        techUsed: "HTML/CSS/JS, Bootstrap", goTo: "", source: ""
+        techUsed: "HTML/CSS/JS, Bootstrap",
+        goTo: "",
+        source: ""
       }, 
       {
-        title: "Weather", size: 3, img: "https://placehold.it/400x200/f9f.png",
+        title: "Weather",
+        size: 3, img: "https://placehold.it/400x200/f9f.png",
         desc: "A tear-out from an old newspaper that tells you the weather today!",
-        techUsed: "HTML/CSS/JS, JQuery, Open Weather API", goTo: "", source: ""
+        techUsed: "HTML/CSS/JS, JQuery, Open Weather API",
+        goTo: "",
+        source: ""
       },
       {
-        title: "Pizza Pomodoro", size: 3, img: "https://placehold.it/400x200/f9f.png",
+        title: "Pizza Pomodoro",
+        size: 3,
+        img: "https://placehold.it/400x200/f9f.png",
         desc: "A pomodoro timer that assembles a pizza while you wait!",
-        techUsed: "HTML/CSS/JS", goTo: "", source: ""
+        techUsed: "HTML/CSS/JS",
+        goTo: "",
+        source: "https://github.com/betaalpha987/pomo"
       }
 
     ];
