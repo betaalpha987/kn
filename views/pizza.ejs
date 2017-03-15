@@ -1,0 +1,311 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="A pizza creator!">
+<meta name="author" content="Kevin Nolan">
+
+<link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel = "stylesheet" href="/stylesheets/pizzaStyle.css">
+
+<title>Pizza Playground</title>
+
+<style>
+  /* This is page-specific CSS not otherwise handled in style.css*/
+
+  #pizza-frame {
+    width: 448px;
+    height: 650px;
+    top: 5vh;
+    margin: auto;
+    position:relative;
+    padding:0px;
+  }
+
+  .menu-frames {
+    z-index:1000;
+    position: absolute;
+    width: 30%;
+    max-width: 200px;
+    height:100%;
+    background-color:rgba(255,220,220,0.5);
+    text-align:center;
+    border: 2px solid white;
+    padding:3px;
+  }
+  #menu-frame-L {
+    top: 0%;
+    left: 0%;
+  }
+  #menu-frame-R {
+    top: 0%;
+    right: 0%;
+  }
+
+  #disp-time {
+    background-color:antiquewhite;
+    width:40px; height:20px;
+    border-radius:20%;
+    font-size:3rem;
+    padding:0px 5px 0px 5px;
+  }
+  #help-frame {
+    z-index:1000;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    width: 60%;
+    background-color:rgba(255,170,100,0.5);
+    text-align:center;
+    border: 2px solid white;
+    border-radius:20%;
+    padding:10px;
+
+  }
+  #info-btn-frame {
+    position:absolute;
+    top: 5%;
+    right: 5%;
+  }
+  .btn-link {
+    color: #f55;
+    font-size:2rem;
+  }
+  .btn-warning {
+    background-color:#f55;
+    border-color:white;
+  }
+
+  .piz { /*All pizza elements*/
+    position:absolute;
+    margin:0px;
+    padding:0px;
+  }
+  .bkg { /* Dough and platter*/
+    z-index:-5;
+  }
+  .t-base { /*tomato base*/
+    bottom:239px; left:28px;
+    z-index: 0;
+  }
+  .rim {
+    bottom:213px; left:3px;
+    z-index:1;
+  }
+  .c-base { /*cheese base*/
+    bottom:257px; left:45px;
+    z-index: 2;
+  }
+  .topp { /*Toppings*/
+    animation: topp-anim 300ms ease-in;
+    z-index: 4;
+  }
+  @keyframes topp-anim {
+    from {
+      transform:scale(2);
+      opacity:0;
+    }
+  }
+
+  @keyframes vanish {
+    to {
+      transform:scale(0.1);
+      opacity: 0;
+    }
+  
+  }
+
+</style>
+
+</head>
+
+<body>
+
+
+<div id="pizza-frame">
+  <img src="images/piz_base.svg" class="piz bkg"/>
+  <img src="images/piz_base_tom.svg" class="piz t-base"/>
+  <img src="images/piz_rim.svg" class="piz rim"/>
+  <img src="images/piz_base_cheese.svg" class="piz c-base"/ id="cheese-base">
+</div>
+<div class="menu-frames" id="menu-frame-L">
+  <form action="/pizzas" method="POST">
+    <h3>Meat</h3>
+    <input class="toppCB" type = "checkbox" name = "ham" onchange="cBoxChange(this)"> Ham &nbsp;
+    <input class="toppCB" type = "checkbox" name = "bacon" onchange="cBoxChange(this)"> Bacon &nbsp;
+    <input class="toppCB" type = "checkbox" name = "pepperoni" onchange="cBoxChange(this)"> Pepperoni &nbsp;
+    <input class="toppCB" type = "checkbox" name = "salami" onchange="cBoxChange(this)"> Salami &nbsp;
+    <input class="toppCB" type = "checkbox" name = "shrimps" onchange="cBoxChange(this)"> Shrimps &nbsp;
+
+    <h3>Veg</h3>
+    <input class="toppCB" type = "checkbox" name = "mushrooms" onchange="cBoxChange(this)"> Mushrooms &nbsp;
+    <input class="toppCB" type = "checkbox" name = "tomato" onchange="cBoxChange(this)"> Tomato &nbsp;
+    <input class="toppCB" type = "checkbox" name = "pineapple" onchange="cBoxChange(this)"> Pineapple &nbsp;
+    <input class="toppCB" type = "checkbox" name = "redonion" onchange="cBoxChange(this)"> Red Onion &nbsp;
+    <input class="toppCB" type = "checkbox" name = "jalapenos" onchange="cBoxChange(this)"> Jalapeños &nbsp;
+    <input class="toppCB" type = "checkbox" name = "peppers" onchange="cBoxChange(this)"> Peppers &nbsp;
+    <input class="toppCB" type = "checkbox" name = "olives" onchange="cBoxChange(this)"> Olives &nbsp;
+
+    <h3>Seasonings</h3>
+    <input class="toppCB" type = "checkbox" name = "basil" onchange="cBoxChange(this)"> Basil &nbsp;
+    <input class="toppCB" type = "checkbox" name = "parsley" onchange="cBoxChange(this)"> Parsley &nbsp;
+    <input class="toppCB" type = "checkbox" name = "groundchili" onchange="cBoxChange(this)"> Ground Chili &nbsp;
+    
+    <p>Create your favourite pizza then press the button to vote for it!</p>
+    <button>Submit</button>
+  </form>
+  <p>Skip voting and go straight to the results page</p>
+
+</div>
+<div class="menu-frames" id="menu-frame-R">
+  <h3>Classic Favourites</h3>
+  <button type="button" onclick="uncheckAll()">Margherita</button> &nbsp;
+  <button type="button" onclick='setTopp("hawaiian")'>Hawaiian</button> &nbsp;
+  <button type="button" onclick='setTopp("surfnturf")'>Surf n' Turf</button> &nbsp;
+  <button type="button" onclick='setTopp("farmhouse")'>Farmhouse</button> &nbsp;
+  <button type="button" onclick='setTopp("meatfeast")'>Meat Feast</button> &nbsp;
+  <button type="button" onclick='setTopp("vegetarian")'>Vegetarian</button> &nbsp;
+  <button type="button" onclick='setTopp("sizzler")'>Sizzler</button> &nbsp;
+  <button type="button" onclick='setTopp("supreme")'>Supreme</button> &nbsp;
+  <button type="button" onclick='setTopp("vegsupreme")'>Veg Supreme</button> &nbsp;
+</div>
+
+<script>
+let topps = <%- JSON.stringify(topps)%>;
+let setToppings = <%- JSON.stringify(setToppings)%>
+
+// Preload every ingredient image and add h and w fields to each object
+for (let ob in topps) {
+  let thisImg = new Image();
+  thisImg.src="images\\" + topps[ob].src[0];
+  thisImg.onload=(()=>{
+    topps[ob].xC=thisImg.width / 2;
+    topps[ob].yC=thisImg.height / 2;
+  });
+};
+
+function setTopp(kind) {
+  uncheckAll();
+  const cBArr = setToppings[kind].ingred;
+  let wait = 0; // A tiny pause between topping drops to allow them to be added in layers
+  // Ticks a checkbox and drops topping for every string sent in the array argument
+  cBArr.forEach((elem)=>{
+    const i=document.getElementsByName(elem)
+    i[0].checked=true;
+    elem.interv = setTimeout(()=>{
+      dropToppings(elem,true);
+    },100*wait);
+    wait +=1;
+  });
+}
+function uncheckAll() {
+  const toppCBs = Array.from(document.getElementsByClassName("toppCB"));
+  toppCBs.forEach((elem)=>{
+    elem.checked = false;
+    vanishToppings(elem.name,false);
+  });
+}
+
+// checkbox action makes a topping appear or vanish
+function cBoxChange(cBox) {
+  if (cBox.checked) dropToppings(cBox.name,false);
+  else vanishToppings(cBox.name,false);
+}
+
+function vanishToppings(ingred,instant) { // Instant - delete toppings without vanish anim first
+  const frame = document.getElementById("pizza-frame");
+  const topp = topps[ingred];
+  clearInterval(topp.interv);
+  
+  if (instant) {
+    clearInterval(topp.interv);
+    topp.obj.forEach((elem)=> {
+      frame.removeChild(elem);
+    });
+    topp.obj = [];
+  } else {
+    topp.obj.forEach((elem)=> {
+      elem.style.animation="vanish 300ms 1";
+    })
+    topp.interv=setTimeout(()=>{
+      vanishToppings(ingred,true);
+    },300);
+  }
+}
+
+// Controls the number and type of toppings dropped
+function dropToppings(ingred,fast) {
+  vanishToppings(ingred,true); // If original toppings are still vanishing slowly, insta-delete them
+  const topp = topps[ingred];
+  let toppNum = 0; // Counts toppings placed
+  let subTopp = 0; // For cycling sub-toppings (green olive, black olive etc.)
+  const toppMax = topp.dist.reduce((acc,curr)=>acc+curr); // Max number of toppings to place
+
+  topp.interv = setInterval(()=>{
+    addTopping(topp.src[subTopp],topp.xC,topp.yC,toppNum,topp.dist,topp.dRot,topp.obj)
+    toppNum +=1;
+    if (toppNum >=toppMax) clearInterval(topp.interv);
+    subTopp +=1;
+    if (subTopp >= topp.src.length) subTopp = 0;
+  },fast? 0 : 300/toppMax); // If fast, drop all ingreds at same time, else drop all ingreds within 300ms
+}
+
+// Creates and positions each individual piece of topping 
+function addTopping(tPSrc,tpXC,tpYC,tPNum,disArr,dRot,objArr) {
+  const frame = document.getElementById("pizza-frame");
+  const xPizC = 224; const yPizC = 215; // X and Y Center of pizza
+  const posStagger = 5; // Max random position deviation
+  const rotStagger = 180; // Max random rotation deviation
+  const scaStagger = 0.2; // Max random scale deviation
+
+  const topping = document.createElement("img");
+  frame.appendChild(topping);
+  topping.className = "piz topp";
+  topping.src='images\\'+tPSrc;
+  topping.style.transform = 'rotate('+randPN(rotStagger)
+    + 'deg) scale(' + (1+Math.random()*scaStagger) + ')';
+  topping.style.transform
+
+  // Calc spacing between topping rings based on total no. rings
+  const ringSpace = 180 / disArr.length; 
+  // Choose ring to use based on number of toppings placed so far
+  let ring = 0;
+  if (tPNum < disArr[0]) {
+    ring = 0;
+  }
+  else if (tPNum < (disArr[0] + disArr[1])) {
+    ring = 1;
+    tPNum -= disArr[0];
+  } else if (tPNum < (disArr[0] + disArr[1] + disArr[2])) {
+    ring = 2;
+    tPNum -= (disArr[0] + disArr[1]);
+  } else {
+    ring = 3;
+    tPNum -= (disArr[0] + disArr[1] + disArr[2]);
+  }
+  let radius = ringSpace*(ring);
+  // Determine angle in ring to place topping in
+  let angle = (tPNum/disArr[ring]+dRot) * Math.PI*2;
+
+  let x = (Math.cos(angle)*radius) + xPizC - tpXC + randPN(posStagger);
+  let y = (Math.sin(angle)*radius) + yPizC - tpYC + randPN(posStagger);
+  topping.style.left=x.toString()+"px";
+  topping.style.top=y.toString()+"px";
+
+  objArr.push(topping);
+}
+
+function randPN(i) { // return a random number between -i and i
+  return Math.random() * i * (Math.floor(Math.random()*2) == 1 ? 1 : -1);
+}
+
+</script>
+
+</body>
+</html>

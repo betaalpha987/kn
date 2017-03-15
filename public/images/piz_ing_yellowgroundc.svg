@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1.4347621mm"
+   height="1.2785342mm"
+   viewBox="0 0 5.0838028 4.5302392"
+   id="svg6431"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="piz_base_yellowgroundc.svg">
+  <defs
+     id="defs6433">
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter6730"
+       x="-0.048"
+       width="1.096"
+       y="-0.048"
+       height="1.096">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.10702"
+         id="feGaussianBlur6732" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.9195959"
+     inkscape:cx="18.577011"
+     inkscape:cy="-39.547635"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata6436">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(422.5419,-198.66852)">
+    <g
+       id="g20161-9-9"
+       transform="matrix(0.86684852,0,0,-0.77245939,-417.68075,200.93325)"
+       style="fill:#ffe904;fill-opacity:1;filter:url(#filter6730)">
+      <path
+         d="m 0,0 c 0,-1.478 -1.198,-2.676 -2.676,-2.676 -1.477,0 -2.675,1.198 -2.675,2.676 0,1.478 1.198,2.675 2.675,2.675 C -1.198,2.675 0,1.478 0,0"
+         style="fill:#ffe904;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path20163-305-9"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="A pizza creator!">
+<meta name="author" content="Kevin Nolan">
+
+<link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel = "stylesheet" href="/stylesheets/pizzaStyle.css">
+
+<title>Pizza Poller Deluxe</title>
+
+<style>
+/* This is page-specific CSS not otherwise handled in style.css*/
+
+.piz-entry {
+  display:flex;
+  margin: 6px;
+  padding: 3px;
+  background-color:rgba(255,220,220,0.5);
+  border: 2px solid white;
+  border-radius: 5px;
+  min-height: 100px;
+  font-size: 2em;
+}
+.piz-entry-l { width: 20%; }
+.piz-entry-m { width: 80%; }
+
+.piz-icon {
+  position:relative;
+  margin:5px;
+  padding:0px;
+  z-index: 4;
+  transform:rotate(20deg);
+}
+@keyframes topp-anim {
+  from {
+    transform:scale(2);
+    opacity:0;
+  }
+}
+</style>
+
+</head>
+
+<body>
+<h1>Pizza Poller Deluxeeeee</h1>
+
+<form action="/newtoppings" method = "POST">
+
+  <input type = "text" placeholder = "Please enter topping" name = "topping"><br>
+
+  <button type = "submit">Submit</button>
+</form>
+
+<div id="top-piz-frame">
+  <h3>Favourite Pizzas</h3>
+  <p>Others have voted for:</p>
+</div>
+
+<h3>Other toppings Poll</h3>
+<ul class = "pizza">
+  <%
+  newToppings.forEach ((elem)=> {
+    if (elem.topping) {
+      %>
+      <li class="pizza">
+        <span><%=elem.topping %></span><br>
+      </li>
+      <%
+    }
+  });
+  %>
+</ul>
+
+<script>
+<%
+  // Generate top Pizzas list server-side
+  let topPizzas=[]; 
+  pizzas.forEach((el)=>{
+    let arr=Object.keys(el);
+    // Convert to array, remove non-ingredient database fields, and sort
+    arr.forEach((elem,ind)=>{if (elem == '_id') arr.splice(ind,1);});
+    arr.sort();
+    // arr: [['ham', 'pineapple'] etc.]
+    // Create array of unique topping objects with a name and count of the duplicates
+    let matched = false;
+    topPizzas.forEach((el2,ind2)=> {
+      if (arr.toString() == el2.ingred.toString()) {
+        el2.count +=1;
+        matched = true;
+      }
+    });
+    if (!matched) topPizzas.push({ingred:arr, count: 1, name: "Custom"});
+  });
+  //topPizzas: [{ingred: ["ham","pineapple"], count:1, name: "Custom"} etc.]
+  // Match to set topping names
+  topPizzas.forEach((elem)=>{
+    for (let tops in setToppings) {
+      if (elem.ingred.toString() == setToppings[tops].ingred.toString()) elem.name = setToppings[tops].name;
+    }
+  });
+  //topPizzas: [{ingred: ["ham","pineapple"], count:1, name: "Hawaiian"} etc.]
+  // Sort in order of popularity
+  topPizzas.sort((a,b)=>{
+    return b.count - a.count;  
+  });
+  //console.log("Sorted: ",topPizzas);
+%>
+
+// Client-side, generate the top-ten.
+
+let topPizzas = <%- JSON.stringify(topPizzas)%>;
+let topps = <%- JSON.stringify(topps)%>;
+//console.log(topPizzas);
+const topPizFrame = document.getElementById("top-piz-frame");
+
+for (let i=0; i < 10 || i < topPizzas.length; i++) {
+  let elem = topPizzas[i];
+  // Render each entry
+  const pizEntry = document.createElement("div");
+  topPizFrame.appendChild(pizEntry);
+  pizEntry.className = "piz-entry";
+
+  const pizEntryL = document.createElement("div");
+  pizEntry.appendChild(pizEntryL);
+  pizEntryL.className = "piz-entry-l";
+
+  const pizEntryM = document.createElement("div");
+  pizEntry.appendChild(pizEntryM);
+  pizEntryM.className = "piz-entry-m";
+
+  pizEntryL.innerHTML=i+1 + "<br>(" + elem.count + (elem.count > 1?  " votes)" : " vote)");
+  pizEntryM.innerHTML=elem.name+"<br>";
+  // Render icons for each entry's ingredients
+  elem.ingred.forEach((ing)=> {
+    const icon = document.createElement("img");
+    pizEntryM.appendChild(icon);
+    icon.className = "piz-icon";
+    // Source image: if there's a group image, use that.
+    if (topps[ing].grpsrc) icon.src='images\\'+topps[ing].grpsrc;
+    else icon.src='images\\'+topps[ing].src[0];
+  });
+};
+  
+
+</script>
+
+
+</body>
+</html>

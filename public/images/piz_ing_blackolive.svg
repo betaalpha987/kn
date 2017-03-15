@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="5.5061035mm"
+   height="5.7906384mm"
+   viewBox="0 0 19.509816 20.51801"
+   id="svg9704"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="piz_ing_blackolive.svg">
+  <defs
+     id="defs9706" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-645.24509"
+     inkscape:cy="355.9733"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata9709">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-598.81652,-867.81749)">
+    <g
+       id="g31511"
+       transform="matrix(0.45469477,0,0,0.45469477,611.47399,399.6239)">
+      <g
+         transform="matrix(1.25,0,0,-1.25,-6.38354,1060.1414)"
+         id="g19593">
+        <path
+           inkscape:connector-curvature="0"
+           id="path19595"
+           style="fill:#3f4526;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="m 0,0 c -4.49,0 -8.13,3.757 -8.13,8.392 0,4.635 3.64,8.392 8.13,8.392 4.49,0 8.13,-3.757 8.13,-8.392 C 8.13,3.757 4.49,0 0,0 m 0,24.363 c -9.479,0 -17.163,-7.932 -17.163,-17.717 0,-9.784 7.684,-17.716 17.163,-17.716 9.479,0 17.163,7.932 17.163,17.716 0,9.785 -7.684,17.717 -17.163,17.717" />
+      </g>
+      <g
+         transform="matrix(1.25,0,0,-1.25,-5.47854,1066.9204)"
+         id="g19597">
+        <path
+           inkscape:connector-curvature="0"
+           id="path19599"
+           style="fill:#212417;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="m 0,0 c -9.323,0 -16.893,7.678 -17.14,17.24 -0.483,-1.636 -0.747,-3.371 -0.747,-5.17 0,-9.785 7.684,-17.717 17.163,-17.717 9.479,0 17.163,7.932 17.163,17.717 0,0.161 -0.019,0.316 -0.023,0.476 C 14.272,5.285 7.736,0 0,0" />
+      </g>
+      <g
+         transform="matrix(1.25,0,0,-1.25,-6.38354,1060.9748)"
+         id="g19709">
+        <path
+           inkscape:connector-curvature="0"
+           id="path19711"
+           style="fill:#3f4526;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="m 0,0 c -4.49,0 -8.13,3.757 -8.13,8.392 0,4.635 3.64,8.392 8.13,8.392 4.49,0 8.13,-3.757 8.13,-8.392 C 8.13,3.757 4.49,0 0,0 m 0,24.363 c -9.479,0 -17.163,-7.932 -17.163,-17.716 0,-9.785 7.684,-17.717 17.163,-17.717 9.479,0 17.163,7.932 17.163,17.717 0,9.784 -7.684,17.716 -17.163,17.716" />
+      </g>
+      <g
+         transform="matrix(1.25,0,0,-1.25,-5.47854,1067.7537)"
+         id="g19713">
+        <path
+           inkscape:connector-curvature="0"
+           id="path19715"
+           style="fill:#212417;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           d="m 0,0 c -9.323,0 -16.893,7.678 -17.14,17.24 -0.483,-1.636 -0.747,-3.371 -0.747,-5.17 0,-9.785 7.684,-17.717 17.163,-17.717 9.479,0 17.163,7.932 17.163,17.717 0,0.16 -0.019,0.316 -0.023,0.476 C 14.272,5.285 7.736,0 0,0" />
+      </g>
+    </g>
+  </g>
+</svg>

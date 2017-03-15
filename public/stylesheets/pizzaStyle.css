@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Catamaran', sans-serif;
+  background-image: url("/images/tablecloth_yellow.svg");
+  background-size: 60%;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+h2 {
+  font-size: x-large;
+}
