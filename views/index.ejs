@@ -116,7 +116,13 @@ body {
         title: "Weather", size: 3, img: "https://placehold.it/400x200/f9f.png",
         desc: "A tear-out from an old newspaper that tells you the weather today!",
         techUsed: "HTML/CSS/JS, JQuery, Open Weather API", goTo: "", source: ""
+      },
+      {
+        title: "Pizza Pomodoro", size: 3, img: "https://placehold.it/400x200/f9f.png",
+        desc: "A pomodoro timer that assembles a pizza while you wait!",
+        techUsed: "HTML/CSS/JS", goTo: "", source: ""
       }
+
     ];
     
     // Portfolio elements
@@ -144,6 +150,8 @@ body {
             <div class="modal-body">
               <img src="<%=elem.img%>" class="img-responsive">
               <p><%=elem.desc%></p>
+              <p><b>Uses:</b> <%=elem.techUsed%></p>
+
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Play</button>
