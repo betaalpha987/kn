@@ -49,26 +49,34 @@ body {
   box-shadow: 0 12px 16px 0 rgba(255,0,255,0.24), 0 17px 50px 0 rgba(255,0,255,0.19);
   transition-duration: 0s;
 }
+
+/*These stop the navbar from collapsing when screen width < 768px*/
+.navbar-collapse.collapse{
+  display: block !important;
+}
+
+.navbar-nav>li, .navbar-nav{
+  float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child{
+  margin-right: -15px !important;
+}
+
+.navbar-right{
+  float: right !important;
+}
+
+
 </style>
 
 <body>
 
-<!--*Navbar*-->
+<!--Navbar - set up not to collapse as it's already very narrow-->
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <!--Hamburger button for small screens-->
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#this-nav-bar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
-        <!--Regular navbar otherwise-->
-        <a class="navbar-brand" href = "#">Kevin Nolan</a>
-      </div>
-      <div class="collapse navbar-collapse" id="this-nav-bar">
-        <ul class="nav navbar-nav">
+      <div class="">
+        <ul class="nav navbar-nav navbar-left">
           <li class="active"><a href="#portfolio">Portfolio</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -138,7 +146,7 @@ body {
       {
         title: "Moon Boing",
         size: 3, img: "https://placehold.it/400x200/f9f.png",
-        desc: "A game I designed and coded in 2013 for iOS and Android",
+        desc: "A 3D platformer game I designed and coded in 2013 for iOS and Android",
         techUsed: "Javascript, Unity, Android, iOS",
         buttons: [
           {name: "View on Android Store", goTo: "https://play.google.com/store/apps/details?hl=en-gb&id=com.SpHatG.MoonBoingP", big:true}
@@ -148,9 +156,11 @@ body {
         title: "Weather",
         size: 3, img: "https://placehold.it/400x200/f9f.png",
         desc: "A tear-out from an old newspaper that tells you the weather today!",
-        techUsed: "HTML/CSS/JS, JQuery, Open Weather API, CodePen",
+        techUsed: "HTML/CSS/JS, JQuery, Open Weather API",
         buttons: [
-          {name: "Play", goTo: "http://codepen.io/betaalpha/full/rjaxeW/", big:true}
+          {name: "Play", goTo: "https://betaalpha987.github.io/weather", big:true},
+          {name: "Source", goTo: "https://github.com/betaalpha987/weather/blob/master/index.html", big:false},
+          {name: "GitHub", goTo: "https://github.com/betaalpha987/weather", big:false}
         ]
       },
       {
@@ -164,7 +174,6 @@ body {
           {name: "Source", goTo: "https://github.com/betaalpha987/pomo/blob/master/pomo.html", big:false},
           {name: "GitHub", goTo: "https://github.com/betaalpha987/pomo", big:false}
         ]
-        source: "https://github.com/betaalpha987/pomo"
       }
     ];
     
@@ -172,7 +181,7 @@ body {
     portfElems.forEach((elem,ind) =>{
       %>
       <div class="col-xs-<%=elem.size%> portf-entry">
-        <a href=# data-toggle="modal" data-target="#portf-<%=ind%>">
+        <a href="#" data-toggle="modal" data-target="#portf-<%=ind%>">
           <img src="<%=elem.img%>" class="img-responsive">
           <p><%=elem.title%></p>
         </a>
@@ -194,11 +203,16 @@ body {
               <img src="<%=elem.img%>" class="img-responsive">
               <p><%=elem.desc%></p>
               <p><b>Uses:</b> <%=elem.techUsed%></p>
-
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Play</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">GitHub</button>
+              <%
+              elem.buttons.forEach((bt)=> {
+                let classStr = bt.big? "btn btn-primary btn-lg" : "btn btn-default";
+                %>
+                <button class="<%=classStr%>" onclick="window.open('<%=bt.goTo%>');" type = "button"><%=bt.name%></button>
+                <%
+              });
+              %>
             </div>
           </div>
         </div>
