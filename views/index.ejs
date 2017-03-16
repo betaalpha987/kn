@@ -94,8 +94,12 @@ body {
         img: "https://placehold.it/400x200/f9f.png",
         desc: "Pick your favourite pizza toppings, vote for them and see which are everyone's faourites. Both Pizza Playground and this website are a complete server setup deployed via Heroku.",
         techUsed: "HTML/CSS/JS, NodeJS, Express, EQS, MongoDB",
-        goTo: "https://knport.herokuapp.com/pizza",
-        source: "https://github.com/betaalpha987/kn/" // Probably need different sources: for website, pizza ejs and pizzavote ejs
+        buttons: [
+          {name: "Play", goTo: "https://knport.herokuapp.com/pizza",big:true},
+          {name: "Pizza Source", goTo: "",big:false},
+          {name: "Vote Source", goTo: "",big:false},
+          {name: "GitHub", goTo: "https://github.com/betaalpha987/kn/",big:false}
+        ]
       },
       {
         title: "Simon",
@@ -103,8 +107,11 @@ body {
         img: "https://placehold.it/400x200/f9f.png",
         desc: "Test your memory with this classic 80s game",
         techUsed: "HTML/CSS/JS, Bootstrap",
-        goTo: "https://betaalpha987.github.io/simon/simon.html",
-        source: "https://github.com/betaalpha987/simon/blob/master/simon.html"
+        buttons: [
+          {name: "Play", goTo: "https://betaalpha987.github.io/simon/simon.html", big:true},
+          {name: "Source", goTo: "https://github.com/betaalpha987/simon/blob/master/simon.html", big:false},
+          {name: "GitHub", goTo: "https://github.com/betaalpha987/simon", big:false}
+        ]
       }, 
       {
         title: "Tic Tac Toe",
@@ -112,25 +119,39 @@ body {
         img: "https://placehold.it/400x200/f9f.png",
         desc: "The only winning move is not to play. But have a go anyway!",
         techUsed: "HTML/CSS/JS, Bootstrap",
-        goTo: "",
-        source: "https://github.com/betaalpha987/tic"
+        buttons: [
+          {name: "Play", goTo: "https://betaalpha987.github.io/tic/tic.html", big:true},
+          {name: "Source", goTo: "https://github.com/betaalpha987/tic/blob/master/tic.html", big:false},
+          {name: "GitHub", goTo: "https://github.com/betaalpha987/tic", big:false}
+        ]
       }, 
       {
         title: "Glass Calculator",
         size: 3,
         img: "https://placehold.it/400x200/f9f.png",
         desc: "Works best on desktop PCs. Works with both keyboard and mouse.",
-        techUsed: "HTML/CSS/JS, Bootstrap",
-        goTo: "",
-        source: ""
+        techUsed: "HTML/CSS/JS, CodePen",
+        buttons: [
+          {name: "Play", goTo: "http://codepen.io/betaalpha/full/rjaxeW/", big:true}
+        ]
       }, 
+      {
+        title: "Moon Boing",
+        size: 3, img: "https://placehold.it/400x200/f9f.png",
+        desc: "A game I designed and coded in 2013 for iOS and Android",
+        techUsed: "Javascript, Unity, Android, iOS",
+        buttons: [
+          {name: "View on Android Store", goTo: "https://play.google.com/store/apps/details?hl=en-gb&id=com.SpHatG.MoonBoingP", big:true}
+        ]
+      },
       {
         title: "Weather",
         size: 3, img: "https://placehold.it/400x200/f9f.png",
         desc: "A tear-out from an old newspaper that tells you the weather today!",
-        techUsed: "HTML/CSS/JS, JQuery, Open Weather API",
-        goTo: "",
-        source: ""
+        techUsed: "HTML/CSS/JS, JQuery, Open Weather API, CodePen",
+        buttons: [
+          {name: "Play", goTo: "http://codepen.io/betaalpha/full/rjaxeW/", big:true}
+        ]
       },
       {
         title: "Pizza Pomodoro",
@@ -138,10 +159,13 @@ body {
         img: "https://placehold.it/400x200/f9f.png",
         desc: "A pomodoro timer that assembles a pizza while you wait!",
         techUsed: "HTML/CSS/JS",
-        goTo: "",
+        buttons: [
+          {name: "Play", goTo: "https://betaalpha987.github.io/pomo", big:true},
+          {name: "Source", goTo: "https://github.com/betaalpha987/pomo/blob/master/pomo.html", big:false},
+          {name: "GitHub", goTo: "https://github.com/betaalpha987/pomo", big:false}
+        ]
         source: "https://github.com/betaalpha987/pomo"
       }
-
     ];
     
     // Portfolio elements
