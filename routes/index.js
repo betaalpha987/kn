@@ -25,7 +25,7 @@ MongoClient.connect(process.env.DATABASE_URL, (err,database) => {
 });
 
 router.get('/', function(req, res, next) {
-  res.render('index', {}); /*Page needs no data passed to it*/
+  res.render('index'); /*Page needs no data passed to it*/
 });
 
 router.get('/pizza', (req,res) => {
