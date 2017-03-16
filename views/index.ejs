@@ -24,22 +24,35 @@ body,h1,h2,h3,h4,h5,h6 {
 }
 
 body {
-  /* This stops the content from slipping under the top banner*/
-  padding-top: 40px;
-  background-color: #eee;
+  padding-top: 40px;  /* This stops the content from slipping under the top banner*/
+  background-color: #f2f2f2;
 }
-.summary-font {
-  font-weight:bold;
-  font-size:20px;
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -40px;
+    visibility: hidden;
+}
+
+.row, .row-fluid {
+  margin: 10px 0 10px 0;
+}
+
+.container, .container-fluid {
+  max-width: 800px;
 }
 
 .portf-entry {
+  /*max-width: 320px;*/
   background: white;
-  margin:20px;
+  margin:2vmin;
   padding:0px;
+  border: 1px outset rgba(255,255,255,0.3);
 }
 .portf-entry p {
-  padding: 5px;
+  margin: 5px;
+  font-size: 1.2em;
 }
 .portf-entry:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
@@ -54,19 +67,20 @@ body {
 .navbar-collapse.collapse{
   display: block !important;
 }
-
 .navbar-nav>li, .navbar-nav{
   float: left !important;
 }
-
 .navbar-nav.navbar-right:last-child{
   margin-right: -15px !important;
 }
-
 .navbar-right{
   float: right !important;
 }
 
+.footer{
+  height: 40px;
+  background-color: #101;
+}
 
 </style>
 
@@ -74,7 +88,7 @@ body {
 
 <!--Navbar - set up not to collapse as it's already very narrow-->
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
+    <div class="container">
       <div class="">
         <ul class="nav navbar-nav navbar-left">
           <li class="active"><a href="#portfolio">Portfolio</a></li>
@@ -86,20 +100,19 @@ body {
 </nav>
 
 <div class="container">
-
-  <div class="row"  id="about">
+  <div class="row">
+    <a class="anchor" id="portfolio"></a>
     <h1>Kevin Nolan</h1>
     <h3>Web Developer</h3>
   </div>
 
-  <div class="row" id="portfolio">
-    <h2>Portfolio</h2>
+  <div class="row-fluid">
     <%
     let portfElems = [
       {
         title: "Pizza Playground",
-        size: 6,
-        img: "https://placehold.it/400x200/f9f.png",
+        size: 9,
+        img: "https://placehold.it/640x320/f9f.png",
         desc: "Pick your favourite pizza toppings, vote for them and see which are everyone's faourites. Both Pizza Playground and this website are a complete server setup deployed via Heroku.",
         techUsed: "HTML/CSS/JS, NodeJS, Express, EQS, MongoDB",
         buttons: [
@@ -112,7 +125,7 @@ body {
       {
         title: "Simon",
         size: 3,
-        img: "https://placehold.it/400x200/f9f.png",
+        img: "https://placehold.it/320x240/f9f.png",
         desc: "Test your memory with this classic 80s game",
         techUsed: "HTML/CSS/JS, Bootstrap",
         buttons: [
@@ -124,7 +137,7 @@ body {
       {
         title: "Tic Tac Toe",
         size: 3,
-        img: "https://placehold.it/400x200/f9f.png",
+        img: "https://placehold.it/320x240/f9f.png",
         desc: "The only winning move is not to play. But have a go anyway!",
         techUsed: "HTML/CSS/JS, Bootstrap",
         buttons: [
@@ -136,7 +149,7 @@ body {
       {
         title: "Glass Calculator",
         size: 3,
-        img: "https://placehold.it/400x200/f9f.png",
+        img: "https://placehold.it/320x240/f9f.png",
         desc: "Works best on desktop PCs. Works with both keyboard and mouse.",
         techUsed: "HTML/CSS/JS, CodePen",
         buttons: [
@@ -145,7 +158,7 @@ body {
       }, 
       {
         title: "Moon Boing",
-        size: 3, img: "https://placehold.it/400x200/f9f.png",
+        size: 3, img: "https://placehold.it/320x240/f9f.png",
         desc: "A 3D platformer game I designed and coded in 2013 for iOS and Android",
         techUsed: "Javascript, Unity, Android, iOS",
         buttons: [
@@ -154,7 +167,7 @@ body {
       },
       {
         title: "Weather",
-        size: 3, img: "https://placehold.it/400x200/f9f.png",
+        size: 3, img: "https://placehold.it/320x240/f9f.png",
         desc: "A tear-out from an old newspaper that tells you the weather today!",
         techUsed: "HTML/CSS/JS, JQuery, Open Weather API",
         buttons: [
@@ -166,7 +179,7 @@ body {
       {
         title: "Pizza Pomodoro",
         size: 3,
-        img: "https://placehold.it/400x200/f9f.png",
+        img: "https://placehold.it/320x240/f9f.png",
         desc: "A pomodoro timer that assembles a pizza while you wait!",
         techUsed: "HTML/CSS/JS",
         buttons: [
@@ -220,9 +233,10 @@ body {
       <%
     });
     %>
+  </div>
 
-
-  <div class="row"  id="about">
+  <div class="row">
+  <a class="anchor" id="about"></a>
     <div class="col-xs-12">
       <h2>About</h2>
     </div>
@@ -230,6 +244,27 @@ body {
   <div class="row">
     <div class="col-xs-8">
       <p>I'm a web developer. More information forthcoming.</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
+      <p>Mauris imperdiet elementum tincidunt</p>
       <p>Mauris imperdiet elementum tincidunt</p>
       <p>Mauris imperdiet elementum tincidunt</p>
       <p>Mauris imperdiet elementum tincidunt</p>
@@ -242,8 +277,9 @@ body {
   </div>
 
   <div class="row" id="contact">
+    <a class="anchor" id="contact"></a>
     <h2>Contact Me</h2>
-      <div class="col-xs-6 pull-middle" style="min-width:300px;">
+    <div class="col-xs-6 pull-middle" style="min-width:300px;">
       <h3>Send me an email</h3>
       <form action="mailto:kevin@kngamesdesign.com" method="post" enctype="text/plain">
         Name:<br>
@@ -263,7 +299,11 @@ body {
     </div>
   </div>
 
+</div> <!--End of container-->
+
+<div class="footer">
 </div>
+
   
 </body>
   
