@@ -50,39 +50,38 @@
   padding:0px;
 }
 
-#disp-time {
-  background-color:antiquewhite;
-  width:40px; height:20px;
-  border-radius:20%;
-  font-size:3rem;
-  padding:0px 5px 0px 5px;
+button {
+  border-radius: 4px;
+  border: none;
+  padding: 5px;
+  margin: 3px;
+  transition-duration: 0.2s;  
 }
-#help-frame {
-  z-index:1000;
-  position: absolute;
-  top: 40%;
-  left: 20%;
-  width: 60%;
-  background-color:rgba(255,170,100,0.5);
-  text-align:center;
-  border: 2px solid white;
-  border-radius:20%;
-  padding:10px;
 
+.btn-set-topp {
+  background-color: #f90;
 }
-#info-btn-frame {
-  position:absolute;
-  top: 5%;
-  right: 5%;
+.btn-set-topp:hover {
+  background-color: #950;
+  color: white;
 }
-.btn-link {
-  color: #f55;
-  font-size:2rem;
+.btn-set-topp:active {
+  background-color: #500;
+  color: white;
 }
-.btn-warning {
-  background-color:#f55;
-  border-color:white;
+
+.btn-submit {
+  background-color: #99f;
 }
+.btn-submit:hover {
+  background-color: #339;
+  color: white;
+}
+.btn-submit:active {
+  background-color: #003;
+  color: white;
+}
+
 
 .piz { /*All pizza elements*/
   position:absolute;
@@ -132,42 +131,43 @@
 <div id="contain-frame">
   <div id="menu-frame">
     <form action="/pizzas" method="POST">
-      <h3>Meat</h3>
-      <input class="toppCB" type = "checkbox" name = "ham" onchange="cBoxChange(this)"> Ham &nbsp;
-      <input class="toppCB" type = "checkbox" name = "bacon" onchange="cBoxChange(this)"> Bacon &nbsp;
-      <input class="toppCB" type = "checkbox" name = "pepperoni" onchange="cBoxChange(this)"> Pepperoni &nbsp;
-      <input class="toppCB" type = "checkbox" name = "salami" onchange="cBoxChange(this)"> Salami &nbsp;
-      <input class="toppCB" type = "checkbox" name = "shrimps" onchange="cBoxChange(this)"> Shrimps &nbsp;
+      <h3 style="color:#C00;">Meat</h3>
+      <label><input class="toppCB" type = "checkbox" name = "ham" onchange="cBoxChange(this)"> Ham</label> &nbsp;
+      <label><input class="toppCB" type = "checkbox" name = "bacon" onchange="cBoxChange(this)"> Bacon</label> &nbsp;
+      <label><input class="toppCB" type = "checkbox" name = "pepperoni" onchange="cBoxChange(this)"> Pepperoni</label> &nbsp;
+      <label><input class="toppCB" type = "checkbox" name = "salami" onchange="cBoxChange(this)"> Salami</label> &nbsp;
+      <label><input class="toppCB" type = "checkbox" name = "shrimps" onchange="cBoxChange(this)"> Shrimps</label> &nbsp;
 
-      <h3>Veg</h3>
-      <input class="toppCB" type = "checkbox" name = "mushrooms" onchange="cBoxChange(this)"> Mushrooms &nbsp;
-      <input class="toppCB" type = "checkbox" name = "tomato" onchange="cBoxChange(this)"> Tomato &nbsp;
-      <input class="toppCB" type = "checkbox" name = "pineapple" onchange="cBoxChange(this)"> Pineapple &nbsp;
-      <input class="toppCB" type = "checkbox" name = "redonion" onchange="cBoxChange(this)"> Red Onion &nbsp;
-      <input class="toppCB" type = "checkbox" name = "jalapenos" onchange="cBoxChange(this)"> Jalapeños &nbsp;
-      <input class="toppCB" type = "checkbox" name = "peppers" onchange="cBoxChange(this)"> Peppers &nbsp;
-      <input class="toppCB" type = "checkbox" name = "olives" onchange="cBoxChange(this)"> Olives &nbsp;
+      <h3 style="color:#0C0;">Veg</h3>
+      <label><input class="toppCB" type = "checkbox" name = "mushrooms" onchange="cBoxChange(this)"> Mushrooms</label> &nbsp;
+      <label><input class="toppCB" type = "checkbox" name = "tomato" onchange="cBoxChange(this)"> Tomato</label> &nbsp;
+      <label><input class="toppCB" type = "checkbox" name = "pineapple" onchange="cBoxChange(this)"> Pineapple</label> &nbsp;
+      <label><input class="toppCB" type = "checkbox" name = "redonion" onchange="cBoxChange(this)"> Red Onion</label> &nbsp;
+      <label><input class="toppCB" type = "checkbox" name = "jalapenos" onchange="cBoxChange(this)"> Jalapeños</label> &nbsp;
+      <label><input class="toppCB" type = "checkbox" name = "peppers" onchange="cBoxChange(this)"> Peppers</label> &nbsp;
+      <label><input class="toppCB" type = "checkbox" name = "olives" onchange="cBoxChange(this)"> Olives</label> &nbsp;
 
-      <h3>Seasonings</h3>
-      <input class="toppCB" type = "checkbox" name = "basil" onchange="cBoxChange(this)"> Basil &nbsp;
-      <input class="toppCB" type = "checkbox" name = "parsley" onchange="cBoxChange(this)"> Parsley &nbsp;
-      <input class="toppCB" type = "checkbox" name = "groundchili" onchange="cBoxChange(this)"> Ground Chili &nbsp;
+      <h3 style="color:#00C;">Seasonings</h3>
+      <label><input class="toppCB" type = "checkbox" name = "basil" onchange="cBoxChange(this)"> Basil</label> &nbsp;
+      <label><input class="toppCB" type = "checkbox" name = "parsley" onchange="cBoxChange(this)"> Parsley</label> &nbsp;
+      <label><input class="toppCB" type = "checkbox" name = "groundchili" onchange="cBoxChange(this)"> Ground Chili</label> &nbsp;
       
-      <p>Create your favourite pizza then press the button to vote for it!</p>
-      <button>Submit</button>
-    </form>
-    <p>Skip voting and go straight to the results page</p>
+    <h3 style="color:#C0C;">Classic Favourites</h3>
+    <button class="btn-set-topp" type="button" onclick="uncheckAll()">Margherita</button>
+    <button class="btn-set-topp" type="button" onclick='setTopp("hawaiian")'>Hawaiian</button>
+    <button class="btn-set-topp" type="button" onclick='setTopp("surfnturf")'>Surf n' Turf</button>
+    <button class="btn-set-topp" type="button" onclick='setTopp("farmhouse")'>Farmhouse</button>
+    <button class="btn-set-topp" type="button" onclick='setTopp("meatfeast")'>Meat Feast</button>
+    <button class="btn-set-topp" type="button" onclick='setTopp("vegetarian")'>Vegetarian</button>
+    <button class="btn-set-topp" type="button" onclick='setTopp("sizzler")'>Sizzler</button>
+    <button class="btn-set-topp" type="button" onclick='setTopp("supreme")'>Supreme</button>
+    <button class="btn-set-topp" type="button" onclick='setTopp("vegsupreme")'>Veg Supreme</button>
 
-    <h3>Classic Favourites</h3>
-    <button type="button" onclick="uncheckAll()">Margherita</button> &nbsp;
-    <button type="button" onclick='setTopp("hawaiian")'>Hawaiian</button> &nbsp;
-    <button type="button" onclick='setTopp("surfnturf")'>Surf n' Turf</button> &nbsp;
-    <button type="button" onclick='setTopp("farmhouse")'>Farmhouse</button> &nbsp;
-    <button type="button" onclick='setTopp("meatfeast")'>Meat Feast</button> &nbsp;
-    <button type="button" onclick='setTopp("vegetarian")'>Vegetarian</button> &nbsp;
-    <button type="button" onclick='setTopp("sizzler")'>Sizzler</button> &nbsp;
-    <button type="button" onclick='setTopp("supreme")'>Supreme</button> &nbsp;
-    <button type="button" onclick='setTopp("vegsupreme")'>Veg Supreme</button> &nbsp;
+    <p>Create your favourite pizza then press the button to vote for it!</p>
+    <button class="btn-submit">Submit</button>
+    </form>
+    <p>Or <a href="/pizzaVote">skip voting and go straight to the results page</a></p>
+
   </div>
 
   <div id="pizza-frame">

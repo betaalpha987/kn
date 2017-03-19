@@ -15,7 +15,7 @@
 
 <link rel = "stylesheet" href="/stylesheets/pizzaStyle.css">
 
-<title>Pizza Poller Deluxe</title>
+<title>Pizza Poll Results</title>
 
 <style>
 /* This is page-specific CSS not otherwise handled in style.css*/
@@ -51,34 +51,33 @@
 </head>
 
 <body>
-<h1>Pizza Poller Deluxeeeee</h1>
-
-<form action="/newtoppings" method = "POST">
-
-  <input type = "text" placeholder = "Please enter topping" name = "topping"><br>
-
-  <button type = "submit">Submit</button>
-</form>
-
-<div id="top-piz-frame">
-  <h3>Favourite Pizzas</h3>
-  <p>Others have voted for:</p>
-</div>
-
-<h3>Other toppings Poll</h3>
-<ul class = "pizza">
-  <%
-  newToppings.forEach ((elem)=> {
-    if (elem.topping) {
-      %>
-      <li class="pizza">
-        <span><%=elem.topping %></span><br>
-      </li>
-      <%
-    }
-  });
-  %>
-</ul>
+<div class="container">
+  <div class="row">
+    <h1>Pizza Poll Results</h1>
+  </div>
+  <div class="row" id="top-piz-frame">
+  </div>
+  <div class="row">
+    <h2>Other toppings Suggestions</h2>
+    <p>Submit your own suggestion for a new topping using the form below.</p>
+      <form action="/newtoppings" method = "POST">
+        <input type = "text" placeholder = "Please enter topping" name = "topping"> &nbsp;
+        <button type = "submit">Submit</button>
+      </form>
+      <h3>Suggestions made so far:</h3>
+      <ul class = "pizza">
+        <%
+        newToppings.forEach ((elem)=> {
+          if (elem.topping) {
+            %>
+            <li class="pizza">
+              <span><%=elem.topping %></span><br>
+            </li>
+            <%
+          }
+        });
+        %>
+      </ul>
 
 <script>
 <%
