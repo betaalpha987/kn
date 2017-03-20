@@ -30,8 +30,16 @@
   min-height: 100px;
   font-size: 2em;
 }
-.piz-entry-l { width: 20%; }
+.piz-entry-l { 
+  width: 20%;
+  text-align: center;
+}
+.piz-entry-l p {
+  line-height: 90%;
+}
 .piz-entry-m { width: 80%; }
+.piz-entry-s-text { font-size: 1em; }
+.piz-entry-l-text { font-size: 3em; }
 
 .piz-icon {
   position:relative;
@@ -136,7 +144,8 @@ for (let i=0; i < 10 || i < topPizzas.length; i++) {
   pizEntry.appendChild(pizEntryM);
   pizEntryM.className = "piz-entry-m";
 
-  pizEntryL.innerHTML=i+1 + "<br>(" + elem.count + (elem.count > 1?  " votes)" : " vote)");
+  pizEntryL.innerHTML='<p class="piz-entry-l-text">'+ (i+1) + '</p><p class="piz-entry-s-text">('
+    + elem.count + (elem.count > 1?  ' votes)' : ' vote)') + '</p>';
   pizEntryM.innerHTML=elem.name+"<br>";
   // Render icons for each entry's ingredients
   elem.ingred.forEach((ing)=> {
