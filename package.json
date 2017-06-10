@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www"
+    "test": "node ./bin/www.js",
+    "start": "node ./bin/www.js"
   },
   "author": "kevin-nolan",
   "license": "personal",

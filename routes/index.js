@@ -1,27 +1,12 @@
-
 const express = require('express');
 const router = express.Router(); // Needed?
-//const bodyParser= require('body-parser') // Unnecessary?
-//const app = express();
 const MongoClient = require('mongodb').MongoClient // This system uses MongoLab - https://mlab.com
 const pizzaMod = require('../public/pizzaMod.js'); // Module containing pizza-related vars
 
-
-//app.use(bodyParser.urlencoded({extended: true}));
-//app.use(express.static('public'));
-
-//app.set('view engine', 'ejs');
-
-//app.set('views', __dirname + '/views');
-
 let db;
-
 MongoClient.connect(process.env.DATABASE_URL, (err,database) => {
   if (err) return console.log(err);
   db = database;
-//  app.listen(process.env.PORT || 5000, function() {
-//    console.log('Listening on 5000 (localhost) or to autoassigned port (Heroku)');
-//  });
 });
 
 router.get('/', function(req, res, next) {

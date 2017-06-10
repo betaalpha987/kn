@@ -12,7 +12,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '3000'); // Note heroku local overrides the 3000 default with port 5000
 app.set('port', port);
 
 /**
