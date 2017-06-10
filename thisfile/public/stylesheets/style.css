@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css?family=Catamaran");
+body {
+  font-family: 'Catamaran', sans-serif;
+  font-size: 0.8rem; }
+
+div, tr, th, td {
+  padding: 0;
+  margin: 0;
+  border: 0; }
+
+.container {
+  max-width: 1700px;
+  width: 100%; }
+
+.login-bar {
+  background-color: black;
+  color: white; }
+  .login-bar a:link, .login-bar a:visited {
+    color: white;
+    margin: 0 2vw; }
+  .login-bar a:hover {
+    color: lightblue;
+    margin: 0 2vw; }
+
+.site-nav-bar {
+  align-items: center; }
+  .site-nav-bar .nav-item {
+    margin: 0 2vw; }
+  .site-nav-bar .nav-item:hover {
+    color: blue; }
+  .site-nav-bar .current:link, .site-nav-bar .current:visited {
+    color: black; }
+  .site-nav-bar .other:link, .site-nav-bar .other:visited {
+    color: grey; }
+
+.top-banner {
+  background-image: url("../images/car-banner.jpg");
+  height: 250px;
+  display: flex;
+  align-items: center; }
+
+.banner-text {
+  margin-left: 8vw;
+  padding: 5px;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 900; }
+
+.search-form {
+  display: inline; }
+  .search-form .form-control {
+    margin: 20px 1px 20px 1vw;
+    border-radius: 5px;
+    padding: 2px 5px;
+    background-color: #ddd;
+    border: 1px solid #333;
+    font-size: 0.8rem; }
+  .search-form .btn {
+    font-size: 0.8rem;
+    margin: 20px 1px;
+    padding: 3px 5px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #aaa;
+    color: white; }
+
+.page-content {
+  margin: 0 3vw; }
+
+.a-expand {
+  cursor: pointer;
+  font-size: 1.3rem; }
+
+.table-nav-col {
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 0; }
+
+.table-nav {
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 0; }
+  .table-nav th {
+    color: white;
+    background-color: #969696;
+    border-right: 1px solid white;
+    width: 11.11111%;
+    cursor: pointer; }
+  .table-nav th:hover {
+    background-color: #bbb; }
+  .table-nav .active-tab {
+    background-color: #db052c; }
+  .table-nav .active-tab:hover {
+    background-color: #f77; }
+
+.table-delivery th {
+  color: white;
+  background-color: #db052c; }
+.table-delivery th:not(:first-child) {
+  border-right: 1px solid white; }
+.table-delivery tr {
+  background-color: #e3e3e3; }
+.table-delivery td {
+  padding: 8px; }
+.table-delivery .subform {
+  background-color: #fbfbfb; }
+.table-delivery .subform-header-row {
+  padding: 0 2vw; }
+.table-delivery .subform-heading-upper {
+  font-weight: bold; }
+.table-delivery .subform-heading-lower {
+  font-size: 1.2em;
+  color: white;
+  background-color: #db052c;
+  padding: 10px 15px; }
+.table-delivery .subform-form-row {
+  padding: 0 2vw 0 4vw; }
+.table-delivery .form-fields-panel {
+  height: 100%;
+  align-items: flex-start; }
+.table-delivery .form-submit-panel {
+  display: flex;
+  height: 100%;
+  align-items: flex-end; }
+
+.form-delivery {
+  width: 100%; }
+  .form-delivery .form-control {
+    background-color: #eeeeee;
+    padding: 3px 5px;
+    margin: 5px 0;
+    font-size: 0.8rem;
+    border: 0;
+    border-radius: 0; }
+  .form-delivery .form-check-label {
+    min-height: 15px;
+    min-width: 30px;
+    padding: 3px 0;
+    margin: 3px 0; }
+
+.btn-red {
+  background-color: #db052c;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer; }
