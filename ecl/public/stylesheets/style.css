@@ -95,9 +95,17 @@ div, tr, th, td {
 
 .table-delivery th {
   color: white;
-  background-color: #db052c; }
-.table-delivery th:not(:first-child) {
+  background-color: #db052c;
   border-right: 1px solid white; }
+.table-delivery th:not(:first-child) {
+  cursor: pointer; }
+.table-delivery th:not(:first-child):hover {
+  background-color: #f77; }
+.table-delivery .th-sort-by::before {
+  content: " \f160 ";
+  font-family: FontAwesome;
+  left: -5px;
+  position: relative; }
 .table-delivery tr {
   background-color: #e3e3e3; }
 .table-delivery td {

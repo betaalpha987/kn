@@ -118,9 +118,19 @@ div,tr,th,td {
   th {
     color: white;
     background-color: #db052c;
+    border-right:1px solid white;
   }
   th:not(:first-child) {
-    border-right:1px solid white;
+    cursor: pointer;
+  }
+  th:not(:first-child):hover {
+    background-color: #f77;
+  }
+  .th-sort-by::before {
+    content: " \f160 ";
+    font-family: FontAwesome;
+    left:-5px;
+    position:relative;
   }
   tr {
     background-color: #e3e3e3;

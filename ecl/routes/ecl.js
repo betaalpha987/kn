@@ -10,7 +10,7 @@ MongoClient.connect(process.env.DATABASE_URL, (err,database) => {
   db = database;
 });
 
-router.get('/delivery', function(req, res, next) {
+router.get('/', function(req, res, next) {
   
   db.collection('cars').find().toArray(function(err,cResult) {
     if(err) return console.log('Cars collection get error: ', err);

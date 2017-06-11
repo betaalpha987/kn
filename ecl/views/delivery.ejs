@@ -78,12 +78,12 @@
             <thead>
               <tr>
                 <th>&nbsp;</th>
-                <th>Date</th>
-                <th>Quote Number</th>
-                <th>Dealer</th>
-                <th>Name</th>
-                <th>Registration Number</th>
-                <th>Vehicle</th>
+                <th id="hNav0" class="text-center" onclick="populateTable(0,'quoteDate')">Quote Date</th>
+                <th id="hNav1" class="text-center" onclick="populateTable(1,'quoId')">Quote Number</th>
+                <th id="hNav2" class="text-center" onclick="populateTable(2,'clientName')">Client Name</th>
+                <th id="hNav3" class="text-center" onclick="populateTable(3,'driverName')">Driver Name</th>
+                <th id="hNav4" class="text-center" onclick="populateTable(4,'regNumber')">Reg. Number</th>
+                <th id="hNav5" class="text-center" onclick="populateTable(5,'vehicleDescription')">Vehicle</th>
               </tr>
             </thead>
             <tbody id="delivTable">
@@ -93,28 +93,44 @@
       </div>
     </div>
   </div>
+<!--
+                <td>${longDate(e.quoteDate)}</td>
+              <td>${e.quoId}</td>
+              <td>${e.clientName}</td>
+              <td>${e.driverName}</td>
+              <td>${e.regNumber}</td>
+              <td>${e.vehicleDescription}</td>
 
+ -->
   <script>
     var tNavs = [];
+    var hNavs = [];
+    var data = [];
 
     $(document).ready(function () {
-        populateTable();
 
-      /*
-      var jGet = $.getJSON("https://betaalpha987.github.io/cbs/Test-Data.json").always(function () {
-        if (jGet.status !== 200) {
-          alert("Error " + jGet.status + ": " + jGet.statusText);
-          return;
-        }
-        var delivData = JSON.parse(jGet.responseText);
-        populateTable(delivData);
+      data = <%- JSON.stringify(cars) %>;
+      data.forEach(function (e) {
+        if (e.quoteDate) e.quoteDate = new Date(e.quoteDate);
+        if (e.statusDate) e.statusDate = new Date(e.statusDate);
+        if (e.regDate) e.regDate = new Date(e.regDate);
+        if (e.contractStartDate) e.contractStartDate = new Date(e.contractStartDate);
+        if (e.contractEndDate) e.contractEndDate = new Date(e.contractEndDate);
+        if (e.estDeliveryDate) e.estDeliveryDate = new Date(e.estDeliveryDate);
+        if (e.actualDeliveryDate) e.actualDeliveryDate = new Date(e.actualDeliveryDate);
+        if (e.taxExpiryDate) e.taxExpiryDate = new Date(e.taxExpiryDate);
       });
-      */
 
-      // Find all table nav tabs
+      // Find all table and header tabs
       for (var i = 0; i < 9; i++) {
         tNavs[i] = $("#tNav" + i);
       }
+      for (var i = 0; i < 6; i++) {
+        hNavs[i] = $('#hNav' + i);
+      }
+
+      populateTable(0,"quoteDate");
+
     });
 
     function switchtNav(i) {
@@ -124,16 +140,21 @@
       tNavs[i].addClass("active-tab");
     }
 
+    function switchhNav(i) {
+      console.log(i);
+      hNavs.forEach(function (elem) {
+        elem.removeClass("th-sort-by");
+      });
+      hNavs[i].addClass("th-sort-by");
+    }
 
     function toggleDetails(id) {
       var trDetails = $("#tr" + id);
       var faDetails = $("#fa" + id);
       if (trDetails.css("display") === "none") {
-        console.log("yup");
         faDetails.removeClass("fa-plus-circle");
         faDetails.addClass("fa-minus-circle");
       } else {
-        console.log("nope");
         faDetails.removeClass("fa-minus-circle");
         faDetails.addClass("fa-plus-circle");
       }
@@ -160,20 +181,15 @@
       if (elem) elem = new Date(elem);
     }
 
-    function populateTable() {
-      var data = <%- JSON.stringify(cars) %>;
+    function populateTable(btn, index) {
+      switchhNav(btn);
+      //Sort data
+      var sortedData = data.slice().sort(function (a,b) {
+        return a[index] > b[index];
+      });
 
       var htmlInsert = "";
-      data.forEach(function (e) {
-
-        if (e.quoteDate) e.quoteDate = new Date(e.quoteDate);
-        if (e.statusDate) e.statusDate = new Date(e.statusDate);
-        if (e.regDate) e.regDate = new Date(e.regDate);
-        if (e.contractStartDate) e.contractStartDate = new Date(e.contractStartDate);
-        if (e.contractEndDate) e.contractEndDate = new Date(e.contractEndDate);
-        if (e.estDeliveryDate) e.estDeliveryDate = new Date(e.estDeliveryDate);
-        if (e.actualDeliveryDate) e.actualDeliveryDate = new Date(e.actualDeliveryDate);
-        if (e.taxExpiryDate) e.taxExpiryDate = new Date(e.taxExpiryDate);
+      sortedData.forEach(function (e) {
 
         var isDelivCheckboxYes = e.isDelivered === true ? "checked" : "";
         var isDelivCheckboxNo = e.isDelivered !== true ? "checked" : "";
@@ -183,99 +199,99 @@
         htmlInsert +=
           `
             <tr>
-                <td>
-                    <a class="a-expand" onclick="toggleDetails('${e.quoId}')">
-                        <i class="fa fa-plus-circle" aria-hidden="true" id="fa${e.quoId}"></i>
-                    </a>
-                </td>
-                <td>${longDate(e.quoteDate)}</td>
-                <td>${e.quoId}</td>
-                <td>${e.clientName}</td>
-                <td>${e.driverName}</td>
-                <td>${e.regNumber}</td>
-                <td>${e.vehicleDescription}</td>
+              <td>
+                <a class="a-expand" onclick="toggleDetails('${e.quoId}')">
+                  <i class="fa fa-plus-circle" aria-hidden="true" id="fa${e.quoId}"></i>
+                </a>
+              </td>
+              <td>${longDate(e.quoteDate)}</td>
+              <td>${e.quoId}</td>
+              <td>${e.clientName}</td>
+              <td>${e.driverName}</td>
+              <td>${e.regNumber}</td>
+              <td>${e.vehicleDescription}</td>
             </tr>
             <tr class="subform" id="tr${e.quoId}" style="display: none;">
-                <td colspan="7">
-                    <div class="row subform-header-row">
-                        <div class="col" class="subform-heading-upper">
-                            <div class="subform-heading-lower">Confirm Delivery</div>
+              <td colspan="7">
+                <div class="row subform-header-row">
+                  <div class="col" class="subform-heading-upper">
+                    <div class="subform-heading-lower">Confirm Delivery</div>
+                  </div>
+                </div>
+                <div class="row subform-form-row">
+                  <form class="form-inline form-delivery">
+                    <div class="col-5 form-fields-panel">
+                      <div class="form-group row">
+                        <label for="drivername" class="col-4">Driver Name</label>
+                        <input type="text" required class="col-8 form-control" id="drivername" value="${e.driverName}">
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-4">In Stock</label>
+                        <div class="col-3">
+                          <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="instock" id="instock1" value="No" ${isDelivCheckboxNo}>No
+                          </label>
                         </div>
+                        <div class="col-3">
+                          <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="instock" id="instock2" value="Yes" ${isDelivCheckboxYes}>Yes
+                          </label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-4">Vehicle Delivered</label>
+                        <div class="col-3">
+                          <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="delivered" id="delivered1" value="No" ${inStockCheckboxNo}>No
+                          </label>
+                        </div>
+                        <div class="col-3">
+                          <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="delivered" id="delivered2" value="Yes" ${inStockCheckboxYes}>Yes
+                          </label>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="regnum" class="col-4">Registration Number</label>
+                        <input type="text" required class="col-8 form-control" id="regnum" value="${e.regNumber}" pattern="[^a-z ]+" title="Registration number should not include lowercase letters or spaces.">
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="vinnum" class="col-4">Vin Number</label>
+                        <input type="text" class="col-8 form-control" id="vinnum" value="${e.vinNumber}" pattern="[a-zA-Z0-9]{15,15}" title="VIN number must be alphanumeric and 15 characters long.">
+                      </div>
                     </div>
-                    <div class="row subform-form-row">
-                        <form class="form-inline form-delivery">
-                            <div class="col-5 form-fields-panel">
-                                <div class="form-group row">
-                                    <label for="drivername" class="col-4">Driver Name</label>
-                                    <input type="text" required class="col-8 form-control" id="drivername" value="${e.driverName}">
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-4">In Stock</label>
-                                    <div class="col-3">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="instock" id="instock1" value="No" ${isDelivCheckboxNo}>No
-                                        </label>
-                                    </div>
-                                    <div class="col-3">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="instock" id="instock2" value="Yes" ${isDelivCheckboxYes}>Yes
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-4">Vehicle Delivered</label>
-                                    <div class="col-3">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="delivered" id="delivered1" value="No" ${inStockCheckboxNo}>No
-                                        </label>
-                                    </div>
-                                    <div class="col-3">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="delivered" id="delivered2" value="Yes" ${inStockCheckboxYes}>Yes
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="regnum" class="col-4">Registration Number</label>
-                                    <input type="text" required class="col-8 form-control" id="regnum" value="${e.regNumber}" pattern="[^a-z ]+" title="Registration number should not include lowercase letters or spaces.">
-                                </div>
 
-                                <div class="form-group row">
-                                    <label for="vinnum" class="col-4">Vin Number</label>
-                                    <input type="text" class="col-8 form-control" id="vinnum" value="${e.vinNumber}" pattern="[a-zA-Z0-9]{15,15}" title="VIN number must be alphanumeric and 15 characters long.">
-                                </div>
-                            </div>
-
-                            <div class="col-5 form-fields-panel">
-                                <div class="form-group row">
-                                    <label for="regdate" class="col-4">Registration Date</label>
-                                    <input type="date" class="col-8 form-control" id="regdate" value="${shortDate(e.regDate) || ''}">
-                                </div>
-                                <div class="form-group row">
-                                    <label for="taxexpdate" class="col-4">Tax Expiry Date</label>
-                                    <input type="date" class="col-8 form-control" id="taxexpdate" value="${shortDate(e.taxExpiryDate) || ''}">
-                                </div>
-                                <div class="form-group row">
-                                    <label for="delivdate" class="col-4">Est. Delivery Date</label>
-                                    <input type="date" class="col-8 form-control" id="delivdate" value="${shortDate(e.estDeliveryDate) || ''}">
-                                </div>
-                                <div class="form-group row">
-                                    <label for="actdelivdate" class="col-4">Actual Delivery Date</label>
-                                    <input type="date" class="col-8 form-control" id="actdeldate" value="${shortDate(e.actualDeliveryDate) || ''}">
-                                </div>
-                                <div class="form-group row">
-                                    <label for="endcontract" class="col-4">End Of Contract</label>
-                                    <input type="date" class="col-8 form-control" id="endcontract" value="${shortDate(e.contractEndDate) || ''}">
-                                </div>
-                            </div>
-
-                            <div class="col-2 form-submit-panel">
-                                <button type="submit" class="btn-red">Confirm Delivery</button>
-                            </div>
-
-                        </form>
+                    <div class="col-5 form-fields-panel">
+                      <div class="form-group row">
+                        <label for="regdate" class="col-4">Registration Date</label>
+                        <input type="date" class="col-8 form-control" id="regdate" value="${shortDate(e.regDate) || ''}">
+                      </div>
+                      <div class="form-group row">
+                        <label for="taxexpdate" class="col-4">Tax Expiry Date</label>
+                        <input type="date" class="col-8 form-control" id="taxexpdate" value="${shortDate(e.taxExpiryDate) || ''}">
+                      </div>
+                      <div class="form-group row">
+                        <label for="delivdate" class="col-4">Est. Delivery Date</label>
+                        <input type="date" class="col-8 form-control" id="delivdate" value="${shortDate(e.estDeliveryDate) || ''}">
+                      </div>
+                      <div class="form-group row">
+                        <label for="actdelivdate" class="col-4">Actual Delivery Date</label>
+                        <input type="date" class="col-8 form-control" id="actdeldate" value="${shortDate(e.actualDeliveryDate) || ''}">
+                      </div>
+                      <div class="form-group row">
+                        <label for="endcontract" class="col-4">End Of Contract</label>
+                        <input type="date" class="col-8 form-control" id="endcontract" value="${shortDate(e.contractEndDate) || ''}">
+                      </div>
                     </div>
-                </td>
+
+                    <div class="col-2 form-submit-panel">
+                      <button type="submit" class="btn-red">Confirm Delivery</button>
+                    </div>
+
+                  </form>
+                </div>
+              </td>
             </tr>
 
           `;
